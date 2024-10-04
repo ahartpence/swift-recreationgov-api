@@ -24,7 +24,6 @@ public extension RecreationGovApiClient {
         let url = baseURL.appendingPathComponent("/facilities/\(facilityID)/campsites")
         
         let queryItems = [
-
             URLQueryItem(name: "query", value: query),
             URLQueryItem(name: "limit", value: "\(limit)"),
             URLQueryItem(name: "offset", value: "\(offset)")
