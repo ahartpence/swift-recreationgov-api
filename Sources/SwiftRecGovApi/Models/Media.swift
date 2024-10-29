@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct Media: Codable, Sendable {
+public struct Media: Decodable, Sendable {
     public let mediaID: String?
     public let mediaType: String?
     public let entityID: String?

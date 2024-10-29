@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Facility: Codable, Identifiable, Sendable {
+public struct Facility: Decodable, Identifiable, Sendable {
     public let id: String
     public let legacyFacilityID: String
     public let orgFacilityID: String
@@ -79,7 +79,7 @@ public struct Facility: Codable, Identifiable, Sendable {
     }
 }
 
-public struct Geolocation: Codable, Sendable {
+public struct Geolocation: Decodable, Sendable {
     public let type: String
     public let coordinates: [Double]?
     
@@ -89,7 +89,7 @@ public struct Geolocation: Codable, Sendable {
     }
 }
 
-public struct FacilityCampsite: Codable, Sendable {
+public struct FacilityCampsite: Decodable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -101,7 +101,7 @@ public struct FacilityCampsite: Codable, Sendable {
     }
 }
 
-public struct FacilityTour: Codable, Sendable {
+public struct FacilityTour: Decodable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -113,7 +113,7 @@ public struct FacilityTour: Codable, Sendable {
     }
 }
 
-public struct FacilityRecArea: Codable, Sendable {
+public struct FacilityRecArea: Decodable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -125,7 +125,7 @@ public struct FacilityRecArea: Codable, Sendable {
     }
 }
 
-public struct FacilityAddress: Codable, Sendable {
+public struct FacilityAddress: Decodable, Sendable {
     public let id: String
     public let facilityId: String
     public let type: String
@@ -154,7 +154,7 @@ public struct FacilityAddress: Codable, Sendable {
 }
 
 
-public struct FacilityActivity: Codable, Sendable {
+public struct FacilityActivity: Decodable, Sendable {
     public let id: String
     public let facilityId: String
     public let name: String
@@ -171,7 +171,7 @@ public struct FacilityActivity: Codable, Sendable {
 }
 
 
-public struct FacilityPermitEntrance: Codable, Sendable {
+public struct FacilityPermitEntrance: Decodable, Sendable {
     public let id: String
     public let name: String
     public let url: String

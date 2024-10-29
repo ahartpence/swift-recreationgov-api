@@ -5,7 +5,7 @@
 //  Created by Andrew Hartpence on 10/4/24.
 //
 
-public struct Organization: Codable, Sendable {
+public struct Organization: Decodable, Sendable {
     public let id: String
     public let name: String
     public let imageURL: String

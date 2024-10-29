@@ -7,7 +7,7 @@
 import Foundation
 
 
-public struct RecGovApiResponse<T: Codable>: Codable {
+public struct RecGovApiResponse<T: Decodable>: Decodable {
     public let recreationData: [T]
     
     enum CodingKeys: String, CodingKey {

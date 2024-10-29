@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RecArea: Codable, Identifiable, Sendable, Hashable {
+public struct RecArea: Decodable, Sendable, Hashable, Identifiable  {
     public let id: String
     public let orgRecAreaId: String
     public let parentOrgId: String?

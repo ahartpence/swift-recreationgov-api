@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Activity: Codable, Sendable {
+public struct Activity: Decodable, Sendable {
     public let id: Int
     public let name: String
     public let level: Int?

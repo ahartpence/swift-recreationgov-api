@@ -8,7 +8,7 @@
 import Foundation
 
 
-public struct Link: Codable, Sendable {
+public struct Link: Decodable, Sendable {
     public let id: String
     public let type: String
     public let parentID: String

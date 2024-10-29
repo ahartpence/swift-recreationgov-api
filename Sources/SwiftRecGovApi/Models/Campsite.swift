@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Campsite: Codable, Sendable, Identifiable{
+public struct Campsite: Decodable, Sendable, Identifiable{
     public let id: String
     public let facilityID: String?
     public let name: String
@@ -43,7 +43,7 @@ public struct Campsite: Codable, Sendable, Identifiable{
 }
 
 
-public struct CampAttributes: Codable, Sendable {
+public struct CampAttributes: Decodable, Sendable {
     public let id: Int?
     public let name: String
     public let value: String
@@ -55,7 +55,7 @@ public struct CampAttributes: Codable, Sendable {
     }
 }
 
-public struct PermittedEquipment: Codable, Sendable {
+public struct PermittedEquipment: Decodable, Sendable {
     public let name: String
     public let maxLength: Double
     
