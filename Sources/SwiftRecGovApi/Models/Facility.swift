@@ -38,12 +38,13 @@ public struct Facility: Decodable, Identifiable, Sendable {
     public let org: [Organization]?
     public let recArea: [FacilityRecArea]?
     public let address: [FacilityAddress]?
+    public let activity: [FacilityActivity]?
     public let event: [Event]?
     public let link: [Link]?
     public let media: [Media]?
     
     
-    public init(id: String, legacyFacilityID: String, orgFacilityID: String, parentOrgID: String?, parentRecAreaID: String?, name: String, description: String, typeDescription: String, useFeeDescription: String, directions: String, accessibilityText: String, phone: String, email: String, reservationURL: String, mapURL: String, adaAccess: String, geoJson: Geolocation, latitude: Double, longitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastedUpdated: String, campsite: [FacilityCampsite]?, permitEntrance: [FacilityPermitEntrance]?, tour: [FacilityTour]?, org: [Organization]?, recArea: [FacilityRecArea]?, address: [FacilityAddress]?, event: [Event]?, link: [Link]?, media: [Media]?) {
+    public init(id: String, legacyFacilityID: String, orgFacilityID: String, parentOrgID: String?, parentRecAreaID: String?, name: String, description: String, typeDescription: String, useFeeDescription: String, directions: String, accessibilityText: String, phone: String, email: String, reservationURL: String, mapURL: String, adaAccess: String, geoJson: Geolocation, latitude: Double, longitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastedUpdated: String, campsite: [FacilityCampsite]?, permitEntrance: [FacilityPermitEntrance]?, tour: [FacilityTour]?, org: [Organization]?, recArea: [FacilityRecArea]?, address: [FacilityAddress]?, activity: [FacilityActivity]?, event: [Event]?, link: [Link]?, media: [Media]?) {
         self.id = id
         self.legacyFacilityID = legacyFacilityID
         self.orgFacilityID = orgFacilityID
@@ -74,6 +75,7 @@ public struct Facility: Decodable, Identifiable, Sendable {
         self.org = org
         self.recArea = recArea
         self.address = address
+        self.activity = activity
         self.event = event
         self.link = link
         self.media = media
@@ -110,6 +112,7 @@ public struct Facility: Decodable, Identifiable, Sendable {
         case org = "ORGANIZATION"
         case recArea = "RECAREA"
         case address = "ADDRESS"
+        case activity = "ACTIVITY"
         case event = "EVENT"
         case link = "LINK"
         case media = "MEDIA"
