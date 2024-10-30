@@ -42,6 +42,43 @@ public struct Facility: Decodable, Identifiable, Sendable {
     public let link: [Link]?
     public let media: [Media]?
     
+    
+    public init(id: String, legacyFacilityID: String, orgFacilityID: String, parentOrgID: String?, parentRecAreaID: String?, name: String, description: String, typeDescription: String, useFeeDescription: String, directions: String, accessibilityText: String, phone: String, email: String, reservationURL: String, mapURL: String, adaAccess: String, geoJson: Geolocation, latitude: Double, longitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastedUpdated: String, campsite: [FacilityCampsite]?, permitEntrance: [FacilityPermitEntrance]?, tour: [FacilityTour]?, org: [Organization]?, recArea: [FacilityRecArea]?, address: [FacilityAddress]?, event: [Event]?, link: [Link]?, media: [Media]?) {
+        self.id = id
+        self.legacyFacilityID = legacyFacilityID
+        self.orgFacilityID = orgFacilityID
+        self.parentOrgID = parentOrgID
+        self.parentRecAreaID = parentRecAreaID
+        self.name = name
+        self.description = description
+        self.typeDescription = typeDescription
+        self.useFeeDescription = useFeeDescription
+        self.directions = directions
+        self.accessibilityText = accessibilityText
+        self.phone = phone
+        self.email = email
+        self.reservationURL = reservationURL
+        self.mapURL = mapURL
+        self.adaAccess = adaAccess
+        self.geoJson = geoJson
+        self.latitude = latitude
+        self.longitude = longitude
+        self.stayLimit = stayLimit
+        self.keywords = keywords
+        self.reservable = reservable
+        self.enabled = enabled
+        self.lastedUpdated = lastedUpdated
+        self.campsite = campsite
+        self.permitEntrance = permitEntrance
+        self.tour = tour
+        self.org = org
+        self.recArea = recArea
+        self.address = address
+        self.event = event
+        self.link = link
+        self.media = media
+    }
+    
     enum CodingKeys: String, CodingKey {
         case id = "FacilityID"
         case legacyFacilityID = "LegacyFacilityID"
@@ -82,6 +119,11 @@ public struct Facility: Decodable, Identifiable, Sendable {
 public struct Geolocation: Decodable, Sendable {
     public let type: String
     public let coordinates: [Double]?
+    
+    public init(type: String, coordinates: [Double]?) {
+        self.type = type
+        self.coordinates = coordinates
+    }
     
     enum CodingKeys: String, CodingKey {
         case type = "TYPE"

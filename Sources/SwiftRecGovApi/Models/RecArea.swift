@@ -35,6 +35,35 @@ public struct RecArea: Decodable, Sendable, Hashable, Identifiable  {
     public let media: [Media]?
     public let link: [Link]?
     
+    public init(id: String, orgRecAreaId: String, parentOrgId: String?, name: String, description: String, feeDescription: String, directions: String, phone: String, email: String, reservationURL: String, mapURL: String, geoJson: Geolocation, longitude: Double, latitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastUpdated: String, org: [Organization]?, facility: [FacilityRecArea]?, address: [FacilityAddress]?, activity: [FacilityActivity]?, event: [Event]?, media: [Media]?, link: [Link]?) {
+        self.id = id
+        self.orgRecAreaId = orgRecAreaId
+        self.parentOrgId = parentOrgId
+        self.name = name
+        self.description = description
+        self.feeDescription = feeDescription
+        self.directions = directions
+        self.phone = phone
+        self.email = email
+        self.reservationURL = reservationURL
+        self.mapURL = mapURL
+        self.geoJson = geoJson
+        self.longitude = longitude
+        self.latitude = latitude
+        self.stayLimit = stayLimit
+        self.keywords = keywords
+        self.reservable = reservable
+        self.enabled = enabled
+        self.lastUpdated = lastUpdated
+        self.org = org
+        self.facility = facility
+        self.address = address
+        self.activity = activity
+        self.event = event
+        self.media = media
+        self.link = link
+    }
+    
     
     enum CodingKeys: String, CodingKey {
         case id = "RecAreaID"
