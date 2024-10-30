@@ -19,14 +19,14 @@ public struct Media: Decodable, Sendable {
     public let embedCode: String
     public let height: Int
     public let width: Int
-    public let isPrimaryImage: Bool
-    public let isPreviewImage: Bool
-    public let isGaleryImage: Bool
+    public let isPrimaryImage: Bool?
+    public let isPreviewImage: Bool?
+    public let isGaleryImage: Bool?
     public let credits: String
     
     public enum CodingKeys: String, CodingKey {
         case mediaID = "EntityMediaID"
-        case mediaType = "EntityMediaType"
+        case mediaType = "MediaType"
         case entityID = "EntityID"
         case entityType = "EntityType"
         case title = "Title"

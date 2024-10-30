@@ -105,7 +105,7 @@ func canGetFacilityByRecAreaIdAndFacilityId() async throws {
     } catch {
         errorMessage = "Failed to load activities: \(error.localizedDescription)"
     }
-    
+    print(facility ?? "")
     printError(errorMessage)
     #expect(facility != nil)
 }

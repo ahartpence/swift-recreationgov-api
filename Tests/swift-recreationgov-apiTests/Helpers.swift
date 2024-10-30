@@ -11,7 +11,7 @@ enum testingIDs: String {
     case orgId = "128" // National Parks Service
     case activityId = "6" // TODO: Lookup
     case facilityID = "232458" // Platte River Campground
-    case recAreaId = "1113" // Wallowa Whitman National Forest
+    case recAreaId = "2937" // Sleeping Bear Dunes National Lakeshore
 }
 
 // Helper function to create the API client
