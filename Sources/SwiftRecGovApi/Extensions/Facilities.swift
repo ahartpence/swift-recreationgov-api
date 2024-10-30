@@ -42,7 +42,7 @@ public extension RecreationGovApiClient {
     }
     
     ///Retrieve all facilities for an organization
-    func getFacilitiesByID(orgID: String, query: String = "", limit: Int = 50, offset: Int = 0, fullDetails: String = "false", states: [String] = [], activity: [String] = [], sort: SortingKey = .name) async throws -> [Facility] {
+    func getFacilitiesByID(orgID: String, query: String = "", limit: Int = 50, offset: Int = 0, fullDetails: String = "true", states: [String] = [], activity: [String] = [], sort: SortingKey = .name) async throws -> [Facility] {
         let url = baseURL.appendingPathComponent("/organizations/\(orgID)/facilities")
         
         let queryItems: [URLQueryItem] = [
@@ -61,7 +61,7 @@ public extension RecreationGovApiClient {
     
     
     ///Retrieve a specific facility by Id
-    func getFacilityByID(facilityID: String, fullDetails: String = "false") async throws -> Facility? {
+    func getFacilityByID(facilityID: String, fullDetails: String = "true") async throws -> Facility? {
         let url =  baseURL.appendingPathComponent("/facilities/\(facilityID)")
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
@@ -71,7 +71,7 @@ public extension RecreationGovApiClient {
     
     
     ///Retrieve a specific facility by Id for an organization
-    func getFacilityByID(facilityID: String, orgID: String, fullDetails: String = "false") async throws -> Facility? {
+    func getFacilityByID(facilityID: String, orgID: String, fullDetails: String = "true") async throws -> Facility? {
         let url = baseURL.appendingPathComponent("/organizations/\(orgID)/facilities/\(facilityID)")
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
@@ -81,7 +81,7 @@ public extension RecreationGovApiClient {
     
     
     ///Retrieve a specific facility by Id for a RecArea
-    func getFacilityByID(facilityID: String, recAreaId: String, fullDetails: String = "false") async throws -> Facility? {
+    func getFacilityByID(facilityID: String, recAreaId: String, fullDetails: String = "true") async throws -> Facility? {
         let url = baseURL.appendingPathComponent("/recareas/\(recAreaId)/facilities/\(facilityID)")
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]

@@ -27,7 +27,7 @@ public struct Organization: Decodable, Sendable {
         case abbrevName = "OrgAbbrevName"
         case jusisdictionType = "OrgJurisdictionType"
         case parentID = "OrgParentID"
-        case lastUpdatedDate = "OrgLastUpdatedDate"
+        case lastUpdatedDate = "LastUpdatedDate"
 
     }
     

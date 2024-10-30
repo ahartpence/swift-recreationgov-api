@@ -29,7 +29,7 @@ public extension RecreationGovApiClient  {
         return try await fetchAndDecodeSingle(RecArea.self, url: url)
     }
     
-    func getRecAreasByID(orgID: String, query: String = "", limit: Int = 50, offset: Int = 0, fullDetails: String = "false", sort: SortingKey = .name ) async throws -> [RecArea] {
+    func getRecAreasByID(orgID: String, query: String = "", limit: Int = 50, offset: Int = 0, fullDetails: String = "true", sort: SortingKey = .name ) async throws -> [RecArea] {
         let url = baseURL.appendingPathComponent("/organizations/\(orgID)/recareas")
         
         let queryItems = [
@@ -43,7 +43,7 @@ public extension RecreationGovApiClient  {
         return try await fetchAndDecode(RecArea.self,  url: url, queryItems: queryItems)
     }
     
-    func getRecAreaByID(recAreaID: String, orgID: String, fullDetails: String = "false") async throws -> RecArea? {
+    func getRecAreaByID(recAreaID: String, orgID: String, fullDetails: String = "true") async throws -> RecArea? {
         let url = baseURL.appendingPathComponent("/organizations/\(orgID)/recareas/\(recAreaID)")
         
         let queryItems = [URLQueryItem(name: "full", value: fullDetails)]
