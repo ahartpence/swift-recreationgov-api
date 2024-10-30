@@ -28,6 +28,25 @@ func canGetAllFacilities() async throws {
     #expect(!facilities.isEmpty)
 }
 
+@Test("FacilityAddress is able to decode into Facility")
+func canDecodeFacilityAddressToFacility() async throws {
+    var facilities: [Facility] = []
+    var errorMessage: String?
+    let apiClient = createApiClient()
+    
+    do {
+        let fetchedFacilities = try await apiClient.getAllFacilities(limit: 50, offset: 0)
+        facilities = fetchedFacilities
+    } catch {
+        errorMessage = "Failed to load activities: \(error.localizedDescription)"
+    }
+    
+    print(facilities)
+    printError(errorMessage)
+    #expect(!facilities.isEmpty && facilities.first?.address != nil)
+}
+
+
 @Test("Retrieve all facilities for a RecArea")
 func canGetFacilitiesByRecAreaId() async throws {
     var facilities: [Facility] = []

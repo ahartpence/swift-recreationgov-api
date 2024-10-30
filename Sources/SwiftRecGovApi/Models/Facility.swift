@@ -111,7 +111,7 @@ public struct Facility: Decodable, Identifiable, Sendable {
         case tour = "TOUR"
         case org = "ORGANIZATION"
         case recArea = "RECAREA"
-        case address = "ADDRESS"
+        case address = "FACILITYADDRESS"
         case activity = "ACTIVITY"
         case event = "EVENT"
         case link = "LINK"
@@ -170,31 +170,53 @@ public struct FacilityRecArea: Decodable, Sendable {
     }
 }
 
-public struct FacilityAddress: Decodable, Sendable {
-    public let id: String
-    public let facilityId: String
-    public let type: String
-    public let addressLine1: [String]
-    public let addressLine2: String
-    public let addressLine3: String
+public struct FacilityAddress: Decodable, Sendable, Hashable{
+    public let facilityID: String
+    public let addressID: String
+    public let addressType: String
+    public let line1: String
+    public let line2: String
+    public let line3: String
     public let city: String
     public let postalCode: String
     public let stateCode: String
     public let countryCode: String
-    public let updatedDate: String
+    public let lastUpdatedDate: String
+    
+    public init(facilityID: String, addressID: String, addressType: String, line1: String, line2: String, line3: String, city: String, postalCode: String, stateCode: String, countryCode: String, lastUpdatedDate: String) {
+        self.facilityID = facilityID
+        self.addressID = addressID
+        self.addressType = addressType
+        self.line1 = line1
+        self.line2 = line2
+        self.line3 = line3
+        self.city = city
+        self.postalCode = postalCode
+        self.stateCode = stateCode
+        self.countryCode = countryCode
+        self.lastUpdatedDate = lastUpdatedDate
+    }
+    
+    public static func == (lhs: FacilityAddress, rhs: FacilityAddress) -> Bool {
+        return lhs.addressID == rhs.addressID
+    }
+    
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(addressID)
+    }
     
     enum CodingKeys: String, CodingKey {
-        case id = "FacilityAddressID"
-        case facilityId = "FacilityID"
-        case type = "FacilityAddressType"
-        case addressLine1 = "FacilityStreetAddress1"
-        case addressLine2 = "FacilityStreetAddress2"
-        case addressLine3 = "FacilityStreetAddress3"
+        case facilityID = "FacilityAddressID"
+        case addressID = "FacilityID"
+        case addressType = "FacilityAddressType"
+        case line1 = "FacilityStreetAddress1"
+        case line2 = "FacilityStreetAddress2"
+        case line3 = "FacilityStreetAddress3"
         case city = "City"
         case postalCode = "PostalCode"
         case stateCode = "AddressStateCode"
         case countryCode = "AddressCountryCode"
-        case updatedDate = "LastUpdatedDate"
+        case lastUpdatedDate = "LastUpdatedDate"
     }
 }
 
