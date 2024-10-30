@@ -10,13 +10,14 @@ import Foundation
 public extension RecreationGovApiClient  {
     ///Recreation areas are large tracts of federal land for the purpose of, you guessed it, recreating! Recreation areas have many distinguishing characteristics (attributes) ranging from addresses, organizations, links, media links, activities, etc. Recreation areas can contain one to many child facilities. Recreation area examples are Yosemite National Park and the Aldo Leopold Wilderness.
     
-    func getAllRecAreas(query: String? = nil, limit: Int = 50, offset: Int = 0) async throws -> [RecArea] {
+    func getAllRecAreas(query: String? = nil, limit: Int = 50, offset: Int = 0, fullDetails: String = "true") async throws -> [RecArea] {
         let url = baseURL.appendingPathComponent("/recareas")
         
         let queryItems = [
             URLQueryItem(name: "query", value: query),
             URLQueryItem(name: "limit", value: "\(limit)"),
-            URLQueryItem(name: "offset", value: "\(offset)")
+            URLQueryItem(name: "offset", value: "\(offset)"),
+            URLQueryItem(name: "full", value: fullDetails)
         ]
 
         return try await fetchAndDecode(RecArea.self,  url: url, queryItems: queryItems)

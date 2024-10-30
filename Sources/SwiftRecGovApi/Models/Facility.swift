@@ -200,7 +200,7 @@ public struct FacilityAddress: Decodable, Sendable {
 
 
 public struct FacilityActivity: Decodable, Sendable {
-    public let id: String
+    public let id: Int
     public let facilityId: String
     public let name: String
     public let description: String

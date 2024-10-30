@@ -14,13 +14,14 @@ import Foundation
 public extension RecreationGovApiClient {
 
     ///Retrieve all facilities
-    func getAllFacilities(query: String? = nil, limit: Int = 50, offset: Int = 0) async throws -> [Facility] {
+    func getAllFacilities(query: String? = nil, limit: Int = 50, offset: Int = 0, fullDetails: String = "true") async throws -> [Facility] {
         let url = baseURL.appendingPathComponent("/facilities")
         
         let queryItems = [
             URLQueryItem(name: "query", value: query),
             URLQueryItem(name: "limit", value: "\(limit)"),
-            URLQueryItem(name: "offset", value: "\(offset)")
+            URLQueryItem(name: "offset", value: "\(offset)"),
+            URLQueryItem(name: "full", value: fullDetails)
         ]
 
 

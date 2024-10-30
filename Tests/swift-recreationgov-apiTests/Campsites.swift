@@ -66,6 +66,9 @@ func canPerformUnifiedSearch() async throws {
         errorMessage = "Failed to load search results: \(error.localizedDescription)"
     }
     
+    
+    //print(facilities )
+  
     printError(errorMessage)
     #expect(!facilities.isEmpty || !campsites.isEmpty || !recAreas.isEmpty)
 }
