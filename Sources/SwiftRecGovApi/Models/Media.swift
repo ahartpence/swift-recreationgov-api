@@ -22,6 +22,7 @@ public struct Media: Decodable, Sendable {
     public let isPrimaryImage: Bool?
     public let isPreviewImage: Bool?
     public let isGaleryImage: Bool?
+    public let url: String
     public let credits: String
     
     public enum CodingKeys: String, CodingKey {
@@ -38,6 +39,7 @@ public struct Media: Decodable, Sendable {
         case isPrimaryImage = "IsPrimary"
         case isPreviewImage = "IsPreview"
         case isGaleryImage = "IsGallery"
+        case url = "URL"
         case credits = "Credits"
     }
 }
