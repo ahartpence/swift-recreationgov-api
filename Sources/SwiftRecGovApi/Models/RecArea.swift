@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct RecArea: Decodable, Sendable, Hashable, Identifiable  {
+public struct RecArea: Codable, Sendable, Hashable, Identifiable  {
     public let id: String
     public let orgRecAreaId: String
     public let parentOrgId: String?
@@ -103,7 +103,7 @@ public struct RecArea: Decodable, Sendable, Hashable, Identifiable  {
     }
 }
 
-public struct RecAreaActivity: Decodable, Sendable, Hashable {
+public struct RecAreaActivity: Codable, Sendable, Hashable {
     public let id: Int
     public let parentID: String
     public let recAreaID: String
@@ -137,7 +137,7 @@ public struct RecAreaActivity: Decodable, Sendable, Hashable {
     }
 }
 
-public struct RecAreaAddress: Decodable, Sendable, Hashable{
+public struct RecAreaAddress: Codable, Sendable, Hashable{
     public let recAreaID: String
     public let addressID: String
     public let addressType: String
@@ -187,7 +187,7 @@ public struct RecAreaAddress: Decodable, Sendable, Hashable{
     }
 }
 
-public struct RecAreaFacility: Decodable, Sendable, Hashable {
+public struct RecAreaFacility: Codable, Sendable, Hashable {
     public let id: String
     public let name: String
     public let url: String

@@ -5,7 +5,7 @@
 //  Created by Andrew Hartpence on 10/4/24.
 //
 
-public struct Event: Decodable, Sendable {
+public struct Event: Codable, Sendable {
     public let id: String
     public let name: String
     public let link: String

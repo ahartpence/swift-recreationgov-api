@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-public struct Facility: Decodable, Identifiable, Sendable {
+public struct Facility: Codable, Identifiable, Sendable {
     public let id: String
     public let legacyFacilityID: String
     public let orgFacilityID: String
@@ -119,7 +119,7 @@ public struct Facility: Decodable, Identifiable, Sendable {
     }
 }
 
-public struct Geolocation: Decodable, Sendable {
+public struct Geolocation: Codable, Sendable {
     public let type: String
     public let coordinates: [Double]?
     
@@ -134,7 +134,7 @@ public struct Geolocation: Decodable, Sendable {
     }
 }
 
-public struct FacilityCampsite: Decodable, Sendable {
+public struct FacilityCampsite: Codable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -146,7 +146,7 @@ public struct FacilityCampsite: Decodable, Sendable {
     }
 }
 
-public struct FacilityTour: Decodable, Sendable {
+public struct FacilityTour: Codable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -158,7 +158,7 @@ public struct FacilityTour: Decodable, Sendable {
     }
 }
 
-public struct FacilityRecArea: Decodable, Sendable {
+public struct FacilityRecArea: Codable, Sendable {
     public let id: String
     public let name: String
     public let url: String
@@ -170,7 +170,7 @@ public struct FacilityRecArea: Decodable, Sendable {
     }
 }
 
-public struct FacilityAddress: Decodable, Sendable, Hashable{
+public struct FacilityAddress: Codable, Sendable, Hashable{
     public let facilityID: String
     public let addressID: String
     public let addressType: String
@@ -221,7 +221,7 @@ public struct FacilityAddress: Decodable, Sendable, Hashable{
 }
 
 
-public struct FacilityActivity: Decodable, Sendable {
+public struct FacilityActivity: Codable, Sendable {
     public let id: Int
     public let facilityId: String
     public let name: String
@@ -238,7 +238,7 @@ public struct FacilityActivity: Decodable, Sendable {
 }
 
 
-public struct FacilityPermitEntrance: Decodable, Sendable {
+public struct FacilityPermitEntrance: Codable, Sendable {
     public let id: String
     public let name: String
     public let url: String
