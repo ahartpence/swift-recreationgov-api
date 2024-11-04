@@ -12,7 +12,7 @@ public struct RecArea: Codable, Sendable, Hashable, Identifiable  {
     public let orgRecAreaId: String
     public let parentOrgId: String?
     public let name: String
-    public let description: String
+    public let recAreaDescription: String
     public let feeDescription: String
     public let directions: String
     public let phone: String
@@ -35,12 +35,12 @@ public struct RecArea: Codable, Sendable, Hashable, Identifiable  {
     public let media: [Media]?
     public let link: [Link]?
     
-    public init(id: String, orgRecAreaId: String, parentOrgId: String?, name: String, description: String, feeDescription: String, directions: String, phone: String, email: String, reservationURL: String, mapURL: String, geoJson: Geolocation, longitude: Double, latitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastUpdated: String, org: [Organization]?, facility: [RecAreaFacility]?, address: [RecAreaAddress]?, activity: [RecAreaActivity]?, event: [Event]?, media: [Media]?, link: [Link]?) {
+    public init(id: String, orgRecAreaId: String, parentOrgId: String?, name: String, recAreaDescription: String, feeDescription: String, directions: String, phone: String, email: String, reservationURL: String, mapURL: String, geoJson: Geolocation, longitude: Double, latitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastUpdated: String, org: [Organization]?, facility: [RecAreaFacility]?, address: [RecAreaAddress]?, activity: [RecAreaActivity]?, event: [Event]?, media: [Media]?, link: [Link]?) {
         self.id = id
         self.orgRecAreaId = orgRecAreaId
         self.parentOrgId = parentOrgId
         self.name = name
-        self.description = description
+        self.recAreaDescription = recAreaDescription
         self.feeDescription = feeDescription
         self.directions = directions
         self.phone = phone
@@ -70,7 +70,7 @@ public struct RecArea: Codable, Sendable, Hashable, Identifiable  {
         case orgRecAreaId = "OrgRecAreaID"
         case parentOrgId = "ParentOrgID"
         case name = "RecAreaName"
-        case description = "RecAreaDescription"
+        case recAreaDescription = "RecAreaDescription"
         case feeDescription = "RecAreaFeeDescription"
         case directions = "RecAreaDirections"
         case phone = "RecAreaPhone"

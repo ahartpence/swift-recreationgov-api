@@ -14,7 +14,7 @@ public struct Facility: Codable, Identifiable, Sendable {
     public let parentOrgID: String?
     public let parentRecAreaID: String?
     public let name: String
-    public let description: String
+    public let facilityDescription: String
     public let typeDescription: String
     public let useFeeDescription: String
     public let directions: String
@@ -44,14 +44,14 @@ public struct Facility: Codable, Identifiable, Sendable {
     public let media: [Media]?
     
     
-    public init(id: String, legacyFacilityID: String, orgFacilityID: String, parentOrgID: String?, parentRecAreaID: String?, name: String, description: String, typeDescription: String, useFeeDescription: String, directions: String, accessibilityText: String, phone: String, email: String, reservationURL: String, mapURL: String, adaAccess: String, geoJson: Geolocation, latitude: Double, longitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastedUpdated: String, campsite: [FacilityCampsite]?, permitEntrance: [FacilityPermitEntrance]?, tour: [FacilityTour]?, org: [Organization]?, recArea: [FacilityRecArea]?, address: [FacilityAddress]?, activity: [FacilityActivity]?, event: [Event]?, link: [Link]?, media: [Media]?) {
+    public init(id: String, legacyFacilityID: String, orgFacilityID: String, parentOrgID: String?, parentRecAreaID: String?, name: String, facilityDescription: String, typeDescription: String, useFeeDescription: String, directions: String, accessibilityText: String, phone: String, email: String, reservationURL: String, mapURL: String, adaAccess: String, geoJson: Geolocation, latitude: Double, longitude: Double, stayLimit: String, keywords: String, reservable: Bool, enabled: Bool, lastedUpdated: String, campsite: [FacilityCampsite]?, permitEntrance: [FacilityPermitEntrance]?, tour: [FacilityTour]?, org: [Organization]?, recArea: [FacilityRecArea]?, address: [FacilityAddress]?, activity: [FacilityActivity]?, event: [Event]?, link: [Link]?, media: [Media]?) {
         self.id = id
         self.legacyFacilityID = legacyFacilityID
         self.orgFacilityID = orgFacilityID
         self.parentOrgID = parentOrgID
         self.parentRecAreaID = parentRecAreaID
         self.name = name
-        self.description = description
+        self.facilityDescription = facilityDescription
         self.typeDescription = typeDescription
         self.useFeeDescription = useFeeDescription
         self.directions = directions
@@ -88,7 +88,7 @@ public struct Facility: Codable, Identifiable, Sendable {
         case parentOrgID = "ParentOrgID"
         case parentRecAreaID = "ParentRecAreaID"
         case name = "FacilityName"
-        case description = "FacilityDescription"
+        case facilityDescription = "FacilityDescription"
         case typeDescription = "FacilityTypeDescription"
         case useFeeDescription = "FacilityUseFeeDescription"
         case directions = "FacilityDirections"
@@ -225,14 +225,14 @@ public struct FacilityActivity: Codable, Sendable {
     public let id: Int
     public let facilityId: String
     public let name: String
-    public let description: String
+    public let facilityDescription: String
     public let feesDescription: String
     
     enum CodingKeys: String, CodingKey {
         case id = "ActivityID"
         case facilityId = "FacilityID"
         case name = "ActivityName"
-        case description = "FacilityActivityDescription"
+        case facilityDescription = "FacilityActivityDescription"
         case feesDescription = "FacilityActivityFeeDescription"
     }
 }
