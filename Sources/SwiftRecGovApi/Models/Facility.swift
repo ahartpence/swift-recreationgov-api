@@ -120,10 +120,10 @@ public struct Facility: Codable, Identifiable, Sendable {
 }
 
 public struct Geolocation: Codable, Sendable {
-    public let type: String
+    public let type: String?
     public let coordinates: [Double]?
     
-    public init(type: String, coordinates: [Double]?) {
+    public init(type: String?, coordinates: [Double]?) {
         self.type = type
         self.coordinates = coordinates
     }
