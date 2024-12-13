@@ -15,7 +15,7 @@ public extension RecreationGovApiClient {
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
         
-        return try await fetchAndDecodeSingle(Facility.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
  

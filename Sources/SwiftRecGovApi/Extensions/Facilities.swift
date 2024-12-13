@@ -25,7 +25,7 @@ public extension RecreationGovApiClient {
         ]
 
 
-        return try await fetchAndDecode(Facility.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     
@@ -39,7 +39,7 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
 
-        return try await fetchAndDecode(Facility.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     ///Retrieve all facilities for an organization
@@ -56,7 +56,7 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "sort", value: sort.rawValue)
         ]
         
-        return try await fetchAndDecode(Facility.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
         
     }
     
@@ -67,7 +67,7 @@ public extension RecreationGovApiClient {
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
         
-        return try await fetchAndDecodeSingle(Facility.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     
@@ -77,7 +77,7 @@ public extension RecreationGovApiClient {
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
         
-        return try await fetchAndDecodeSingle(Facility.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     
@@ -87,6 +87,6 @@ public extension RecreationGovApiClient {
         
         let queryItems = [URLQueryItem(name: "fullDetails", value: fullDetails)]
         
-        return try await fetchAndDecodeSingle(Facility.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
 }

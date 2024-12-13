@@ -9,11 +9,13 @@ import Testing
 import SwiftRecGovApi
 
 
+let apiClient = createApiClient()
+
 @Test("Get all campsites, store values in [Campsite]")
 func canGetAllCampsites() async throws {
     var campsites: [Campsite] = []
     var errorMessage: String?
-    let apiClient = createApiClient()
+    
     
     do {
         let fetchedActivities = try await apiClient.getAllCampsites(limit: 50, offset: 0)
@@ -31,7 +33,7 @@ func canGetAllCampsites() async throws {
 func getCampsitesByFacility() async throws {
     var campsites: [Campsite] = []
     var errorMessage: String?
-    let apiClient = createApiClient()
+    
     
     do {
         let fetchedCampsites = try await apiClient.getCampsitesByID(facilityID: testingIDs.facilityID.rawValue)
@@ -52,7 +54,7 @@ func canPerformUnifiedSearch() async throws {
     var recAreas: [RecArea] = []
     var errorMessage: String?
     
-    let apiClient = createApiClient()
+    
     
     do {
         async let fetchedFacilities = apiClient.getAllFacilities(query: "Platte River", limit: 50, offset: 0)

@@ -16,6 +16,6 @@ public extension RecreationGovApiClient {
         
         let queryItems = [URLQueryItem(name: "limit", value: "\(limit)"), URLQueryItem(name: "offset", value: "\(offset)")]
         
-        return try await fetchAndDecode(Media.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
 }

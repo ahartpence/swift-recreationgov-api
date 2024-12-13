@@ -34,7 +34,7 @@ public extension RecreationGovApiClient {
      
      - Important: If the decoding fails, this method prints detailed error information in the console, including the problematic data.
      */
-    func fetchAndDecode<T: Decodable>(_ type: T.Type, url: URL, queryItems: [URLQueryItem]) async throws -> [T] {
+    func fetchAndDecode<T: Decodable>(url: URL, queryItems: [URLQueryItem]) async throws -> [T] {
         // Fetch data using the NetworkManager with the provided query items
         let data = try await networkManager.fetchData(from: url, queryItems: queryItems)
         
@@ -74,7 +74,7 @@ public extension RecreationGovApiClient {
      
      - Important: If the decoding fails, this method prints detailed error information in the console, including the problematic data.
      */
-    func fetchAndDecode<T: Decodable>(_ type: T.Type, url: URL) async throws -> [T] {
+    func fetchAndDecode<T: Decodable>(url: URL) async throws -> [T] {
         // Fetch data using the NetworkManager with the provided query items
         let data = try await networkManager.fetchData(from: url)
         
@@ -115,7 +115,7 @@ public extension RecreationGovApiClient {
      
      - Important: If the decoding fails, this method prints detailed error information in the console, including the problematic data.
      */
-    func fetchAndDecodeSingle<T: Decodable>(_ type: T.Type, url: URL) async throws -> T? {
+    func fetchAndDecode<T: Decodable>(url: URL) async throws -> T? {
         // Fetch data using the NetworkManager
         let data = try await networkManager.fetchData(from: url)
         
@@ -156,7 +156,7 @@ public extension RecreationGovApiClient {
      
      - Important: If the decoding fails, this method prints detailed error information in the console, including the problematic data.
      */
-    func fetchAndDecodeSingle<T: Decodable>(_ type: T.Type, url: URL, queryItems: [URLQueryItem]) async throws -> T? {
+    func fetchAndDecode<T: Decodable>(url: URL, queryItems: [URLQueryItem]) async throws -> T? {
         // Fetch data using the NetworkManager
         let data = try await networkManager.fetchData(from: url, queryItems: queryItems)
         

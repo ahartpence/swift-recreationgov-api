@@ -20,14 +20,14 @@ public extension RecreationGovApiClient  {
             URLQueryItem(name: "full", value: fullDetails)
         ]
 
-        return try await fetchAndDecode(RecArea.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     func getRecAreaByID(recAreaID: String) async throws -> RecArea? {
         let url = baseURL.appendingPathComponent("/recareas/\(recAreaID)")
         
         
-        return try await fetchAndDecodeSingle(RecArea.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
     
     func getRecAreasByID(orgID: String, query: String = "", limit: Int = 50, offset: Int = 0, fullDetails: String = "true", sort: SortingKey = .name ) async throws -> [RecArea] {
@@ -41,7 +41,7 @@ public extension RecreationGovApiClient  {
             URLQueryItem(name: "sort", value: sort.rawValue)
         ]
         
-        return try await fetchAndDecode(RecArea.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     func getRecAreaByID(recAreaID: String, orgID: String, fullDetails: String = "true") async throws -> RecArea? {
@@ -49,7 +49,7 @@ public extension RecreationGovApiClient  {
         
         let queryItems = [URLQueryItem(name: "full", value: fullDetails)]
         
-        return try await fetchAndDecodeSingle(RecArea.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
 }

@@ -17,7 +17,7 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
 
-        return try await fetchAndDecode(Campsite.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     func getCampsitesByID(facilityID: String = "", query: String? = nil, limit: Int = 50, offset: Int = 0) async throws -> [Campsite] {
@@ -29,19 +29,19 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
         
-        return try await fetchAndDecode(Campsite.self,  url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     func getCampsiteByID(campsiteID: String = "") async throws -> Campsite? {
         let url = baseURL.appendingPathComponent("/campsites/\(campsiteID)")
         
-        return try await fetchAndDecodeSingle(Campsite.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
     
     func getCampsiteByID(facilityID: String, campsiteID: String) async throws -> Campsite? {
         let url = baseURL.appendingPathComponent("/facilities/\(facilityID)/campsites/\(campsiteID)")
         
-        return try await fetchAndDecodeSingle(Campsite.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
     
 }

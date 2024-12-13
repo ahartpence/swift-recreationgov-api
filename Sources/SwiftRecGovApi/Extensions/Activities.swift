@@ -20,14 +20,14 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
 
-        return try await fetchAndDecode(Activity.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     //Retrieve a specific activity by ID
     func getActivitiesByID(activityID: String) async throws -> Activity? {
         let url = baseURL.appendingPathComponent("/activities/\(activityID)")
         
-        return try await fetchAndDecodeSingle(Activity.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
     
     //Retrieve all activities for a RecArea
@@ -40,14 +40,14 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
         
-        return try await fetchAndDecode(Activity.self, url: url, queryItems: queryItems)
+        return try await fetchAndDecode(url: url, queryItems: queryItems)
     }
     
     //Retrieve a specific activity by ID for a RecArea
     func getActivitiesByID(recAreaID: String, activityID: String) async throws -> Activity? {
         let url = baseURL.appendingPathComponent("/recareas/\(recAreaID)/activities/\(activityID)")
         
-        return try await fetchAndDecodeSingle(Activity.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
     
     //Retrieve all activies for a facility
@@ -60,13 +60,13 @@ public extension RecreationGovApiClient {
             URLQueryItem(name: "offset", value: "\(offset)")
         ]
         
-        return try await fetchAndDecode(Activity.self, url: url, queryItems: queryItem)
+        return try await fetchAndDecode(url: url, queryItems: queryItem)
     }
     
     //Retrieve a specific activity by ID for a facility
     func getActivitiesByID(facilityID: String, activitiyID: String) async throws -> Activity? {
         let url = baseURL.appendingPathComponent("/facilities/\(facilityID)/activities/\(activitiyID)")
         
-        return try await fetchAndDecodeSingle(Activity.self, url: url)
+        return try await fetchAndDecode(url: url)
     }
 }
