@@ -217,4 +217,26 @@ public extension RecreationGovApiClient {
         // Print problematic data for further debugging
         print("Problematic data: \(String(decoding: data, as: UTF8.self))")
     }
+    
+    func fetchAndDecode<T: Decodable>(_ type: T.Type, data: Data) async throws -> [T] {
+        // Debugging: Print raw response data as a string
+//        print(String(bytes: data, encoding: String.Encoding.utf8)!)
+
+        let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .useDefaultKeys
+
+        do {
+            // Attempt to decode the response into the specified type
+            let response = try decoder.decode(RecGovApiResponse<T>.self, from: data)
+            return response.recreationData
+        } catch let decodingError as DecodingError {
+            // Handle specific decoding errors
+            handleDecodingError(decodingError, data: data)
+        } catch {
+            // Handle general errors (network, etc.)
+            print("Unexpected error: \(error.localizedDescription)")
+            print("Problematic data: \(String(decoding: data, as: UTF8.self))")
+        }
+        return []
+    }
 }
